@@ -19,7 +19,7 @@ public class WordCountV0 {
      *
      * @param args 命令行参数.
      */
-    public static void main(String[] args) throws Exception {
+    public static void main2(String[] args) throws Exception {
         //初始化执行环境
         ExecutionEnvironment environment = ExecutionEnvironment.getExecutionEnvironment();
         //从文件中读取数据

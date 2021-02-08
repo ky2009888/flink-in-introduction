@@ -98,6 +98,7 @@
         </dependency>
     </dependencies>
     <build>
+        <finalName>flink-in-introduction</finalName>
         <plugins>
             <!-- 该插件用于将Scala代码编译成class文件 -->
             <plugin>

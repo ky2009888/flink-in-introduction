@@ -10,7 +10,7 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
  * @author Lenovo
  */
 public class StreamWordCount {
-    public static void main(String[] args) throws Exception {
+    public static void main1(String[] args) throws Exception {
         StreamExecutionEnvironment environment = StreamExecutionEnvironment.getExecutionEnvironment();
         String filePath = "F:\\workspace_contro_flow\\flink-in-introduction\\src\\main\\resources\\flink.txt";
         DataStream<String> stringDataStreamSource = environment.readTextFile(filePath);
