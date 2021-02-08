@@ -1,1 +1,15 @@
+0、在使用flink的bin目录下面的flink命令的时候，为了方便通常将/flink安装目录/bin添加到/etc/profile文件中，然后source /etc/profile
+就可以直接使用flink 这个命令。
+1、提交flink任务到集群
 flink run -c com.flink.apps.StreamWordCountV1 -p 2 flink-in-introduction.jar --host localhost --port 7777
+2、查看flink正在执行的任务
+flink list
+Waiting for response...
+------------------ Running/Restarting Jobs -------------------
+08.02.2021 17:04:21 : 192e144223de12e465397c489b1c8af3 : Flink Streaming Job (RUNNING)
+--------------------------------------------------------------
+No scheduled jobs.
+3、取消正在执行的job
+flink cance 正在执行的jobId
+例如：
+flink cancel 192e144223de12e465397c489b1c8af3
