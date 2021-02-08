@@ -25,3 +25,5 @@ No scheduled jobs.
 08.02.2021 16:44:00 : a0f9e563d1d64883b57da513e2a305bc : Flink Streaming Job (CANCELED)
 08.02.2021 17:04:21 : 192e144223de12e465397c489b1c8af3 : Flink Streaming Job (CANCELED)
 --------------------------------------------------------------
+
+备注:默认访问的路径http://192.168.64.8:8081/
