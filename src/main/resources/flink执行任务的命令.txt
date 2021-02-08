@@ -1,0 +1,1 @@
+flink run -c com.flink.apps.StreamWordCountV1 -p 2 flink-in-introduction.jar --host localhost --port 7777
