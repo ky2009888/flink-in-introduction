@@ -1,4 +1,111 @@
-Apache Flink is a framework and distributed processing engine for stateful computations over unbounded and bounded data streams. Flink has been designed to run in all common cluster environments, perform computations at in-memory speed and at any scale.
-Here, we explain important aspects of Flink’s architecture.
-Process Unbounded and Bounded Data
-Any kind of data is produced as a stream of events. Credit card transactions, sensor measurements, machine logs, or user interactions on a website or mobile application, all of these data are generated as a stream.
+Apache Flink® 1.12.1 is our latest stable release.
+
+If you plan to use Apache Flink together with Apache Hadoop (run Flink on YARN, connect to HDFS, connect to HBase, or use some Hadoop-based file system connector), please check out the Hadoop Integration documentation.
+
+Apache Flink 1.12.1
+Apache Flink 1.12.1 for Scala 2.11 (asc, sha512)
+
+Apache Flink 1.12.1 for Scala 2.12 (asc, sha512)
+
+Apache Flink 1.12.1 Source Release (asc, sha512)
+
+Optional components
+Avro SQL Format (asc, sha1)
+
+Release Notes
+Please have a look at the Release Notes for Flink 1.12 if you plan to upgrade your Flink setup from a previous version.
+
+Apache Flink 1.11.3
+Apache Flink 1.11.3 for Scala 2.11 (asc, sha512)
+
+Apache Flink 1.11.3 for Scala 2.12 (asc, sha512)
+
+Apache Flink 1.11.3 Source Release (asc, sha512)
+
+Optional components
+Avro SQL Format (asc, sha1)
+
+Release Notes
+Please have a look at the Release Notes for Flink 1.11 if you plan to upgrade your Flink setup from a previous version.
+
+Apache Flink 1.10.3
+Apache Flink 1.10.3 for Scala 2.11 (asc, sha512)
+
+Apache Flink 1.10.3 for Scala 2.12 (asc, sha512)
+
+Apache Flink 1.10.3 Source Release (asc, sha512)
+
+Optional components
+Avro SQL Format (asc, sha1)
+
+CSV SQL Format (asc, sha1)
+
+JSON SQL Format (asc, sha1)
+
+Release Notes
+Please have a look at the Release Notes for Flink 1.10 if you plan to upgrade your Flink setup from a previous version.
+
+Apache Flink® Stateful Functions 2.2.2 is the latest stable release for the Stateful Functions component.
+
+Apache Flink Stateful Functions 2.2.2
+Apache Flink Stateful Functions 2.2.2 Source Release (asc, sha512)
+
+This version is compatible with Apache Flink version 1.11.3.
+
+Additional Components
+These are components that the Flink project develops which are not part of the main Flink release:
+
+Apache Flink-shaded 12.0 Source Release (asc, sha512 )
+
+Pre-bundled Hadoop 2.4.1 (asc, sha1)
+
+Pre-bundled Hadoop 2.6.5 (asc, sha1)
+
+Pre-bundled Hadoop 2.7.5 (asc, sha1)
+
+Pre-bundled Hadoop 2.8.3 (asc, sha1)
+
+Verifying Hashes and Signatures
+Along with our releases, we also provide sha512 hashes in *.sha512 files and cryptographic signatures in *.asc files. The Apache Software Foundation has an extensive tutorial to verify hashes and signatures which you can follow by using any of these release-signing KEYS.
+
+Maven Dependencies
+Apache Flink
+You can add the following dependencies to your pom.xml to include Apache Flink in your project. These dependencies include a local execution environment and thus support local testing.
+
+Scala API: To use the Scala API, replace the flink-java artifact id with flink-scala_2.11 and flink-streaming-java_2.11 with flink-streaming-scala_2.11.
+<dependency>
+  <groupId>org.apache.flink</groupId>
+  <artifactId>flink-java</artifactId>
+  <version>1.12.1</version>
+</dependency>
+<dependency>
+  <groupId>org.apache.flink</groupId>
+  <artifactId>flink-streaming-java_2.11</artifactId>
+  <version>1.12.1</version>
+</dependency>
+<dependency>
+  <groupId>org.apache.flink</groupId>
+  <artifactId>flink-clients_2.11</artifactId>
+  <version>1.12.1</version>
+</dependency>
+Apache Flink Stateful Functions
+You can add the following dependencies to your pom.xml to include Apache Flink Stateful Functions in your project.
+
+<dependency>
+  <groupId>org.apache.flink</groupId>
+  <artifactId>statefun-sdk</artifactId>
+  <version>2.2.2</version>
+</dependency>
+<dependency>
+  <groupId>org.apache.flink</groupId>
+  <artifactId>statefun-flink-harness</artifactId>
+  <version>2.2.2</version>
+</dependency>
+The statefun-sdk dependency is the only one you will need to start developing applications. The statefun-flink-harness dependency includes a local execution environment that allows you to locally test your application in an IDE.
+
+Update Policy for old releases
+As of March 2017, the Flink community decided to support the current and previous minor release with bugfixes. If 1.2.x is the current release, 1.1.y is the previous minor supported release. Both versions will receive bugfixes for critical issues.
+
+Note that the community is always open to discussing bugfix releases for even older versions. Please get in touch with the developers for that on the dev@flink.apache.org mailing list.
+
+All stable releases
