@@ -28,5 +28,5 @@ public class SenSorReadingV1 implements Serializable {
     /**
      * 温度.
      */
-    private double temperature;
+    private Integer temperature;
 }

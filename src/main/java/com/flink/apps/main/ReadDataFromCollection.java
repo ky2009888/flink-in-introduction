@@ -1,6 +1,7 @@
 package com.flink.apps.main;
 
 import cn.hutool.core.util.RandomUtil;
+import com.flink.apps.common.CommonEnviromentUtils;
 import com.flink.apps.vo.SenSorReadingV1;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
@@ -17,23 +18,9 @@ public class ReadDataFromCollection {
         //1、创建环境
         StreamExecutionEnvironment environment = StreamExecutionEnvironment.getExecutionEnvironment();
         //2、输入数据
-        DataStreamSource<SenSorReadingV1> dataStreamSource = environment.fromCollection(
-                Arrays.asList(
-                        new SenSorReadingV1(RandomUtil.randomNumbers(3), System.currentTimeMillis(), RandomUtil.randomDouble(0.0, 40.0)),
-                        new SenSorReadingV1(RandomUtil.randomNumbers(3), System.currentTimeMillis(), RandomUtil.randomDouble(0.0, 40.0)),
-                        new SenSorReadingV1(RandomUtil.randomNumbers(3), System.currentTimeMillis(), RandomUtil.randomDouble(0.0, 40.0)),
-                        new SenSorReadingV1(RandomUtil.randomNumbers(3), System.currentTimeMillis(), RandomUtil.randomDouble(0.0, 40.0)),
-                        new SenSorReadingV1(RandomUtil.randomNumbers(3), System.currentTimeMillis(), RandomUtil.randomDouble(0.0, 40.0)),
-                        new SenSorReadingV1(RandomUtil.randomNumbers(3), System.currentTimeMillis(), RandomUtil.randomDouble(0.0, 40.0)),
-                        new SenSorReadingV1(RandomUtil.randomNumbers(3), System.currentTimeMillis(), RandomUtil.randomDouble(0.0, 40.0)),
-                        new SenSorReadingV1(RandomUtil.randomNumbers(3), System.currentTimeMillis(), RandomUtil.randomDouble(0.0, 40.0)),
-                        new SenSorReadingV1(RandomUtil.randomNumbers(3), System.currentTimeMillis(), RandomUtil.randomDouble(0.0, 40.0)),
-                        new SenSorReadingV1(RandomUtil.randomNumbers(3), System.currentTimeMillis(), RandomUtil.randomDouble(0.0, 40.0)),
-                        new SenSorReadingV1(RandomUtil.randomNumbers(3), System.currentTimeMillis(), RandomUtil.randomDouble(0.0, 40.0)),
-                        new SenSorReadingV1(RandomUtil.randomNumbers(3), System.currentTimeMillis(), RandomUtil.randomDouble(0.0, 40.0))
-                ));
+        DataStreamSource<SenSorReadingV1> dataStreamSource = CommonEnviromentUtils.optCommonData(environment);
         //3、打印数据
-        dataStreamSource.print();
+        dataStreamSource.setParallelism(1).print();
         //4、开启环境执行
         environment.execute();
     }
