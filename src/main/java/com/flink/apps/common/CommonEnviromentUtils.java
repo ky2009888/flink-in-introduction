@@ -5,8 +5,7 @@ import com.flink.apps.vo.SenSorReadingV1;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
-import java.util.Arrays;
-import java.util.Properties;
+import java.util.*;
 
 /**
  * @Author ky2009666
@@ -52,7 +51,7 @@ public class CommonEnviromentUtils {
      */
     public static DataStreamSource<SenSorReadingV1> optCommonData(StreamExecutionEnvironment environment) {
         if (environment == null) {
-            return null;
+            environment = getStreamExecutionEnvironment();
         }
         return environment.fromCollection(
                 Arrays.asList(
@@ -69,5 +68,27 @@ public class CommonEnviromentUtils {
                         new SenSorReadingV1(RandomUtil.randomNumbers(1), System.currentTimeMillis(), RandomUtil.randomInt(1, 100)),
                         new SenSorReadingV1(RandomUtil.randomNumbers(1), System.currentTimeMillis(), RandomUtil.randomInt(1, 100))
                 ));
+    }
+
+    /**
+     * 获取制定好的数据.
+     *
+     * @param environment 环境变量.
+     * @return DataStreamSource<SenSorReadingV1>.
+     */
+    public static DataStreamSource<SenSorReadingV1> optLoopCommonData(StreamExecutionEnvironment environment, int numbers) {
+        if (environment == null) {
+            return null;
+        }
+        if (numbers == 0) {
+            return null;
+        }
+        SenSorReadingV1 senSorReadingV1;
+        List<SenSorReadingV1> list = new ArrayList<>();
+        for (int i = 0; i < numbers; i++) {
+            senSorReadingV1 = new SenSorReadingV1(RandomUtil.randomNumbers(1), System.nanoTime(), RandomUtil.randomInt(1, 100));
+            list.add(senSorReadingV1);
+        }
+        return environment.fromCollection(list);
     }
 }
